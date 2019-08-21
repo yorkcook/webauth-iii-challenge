@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
-const hash = bcrypt.hashSync("LovesLauren", 10);
+const yorkPassword = bcrypt.hashSync("LovesLauren", 10);
+const laurenPassword = bcrypt.hashSync("LovesYork", 10);
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
@@ -10,12 +11,12 @@ exports.seed = function(knex) {
       return knex("users").insert([
         {
           username: "York",
-          password: hash,
+          password: yorkPassword,
           department: "Team YoLo"
         },
         {
           username: "Lauren",
-          password: "LovesYork",
+          password: laurenPassword,
           department: "Team YoLo"
         }
       ]);
